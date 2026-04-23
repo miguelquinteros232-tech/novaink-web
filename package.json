@@ -1,13 +1,6 @@
 {
   "name": "novaink-web",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
+  "version": "1.0.0",
   "dependencies": {
     "next": "latest",
     "react": "latest",
@@ -17,5 +10,10 @@
     "tailwindcss": "latest",
     "postcss": "latest",
     "autoprefixer": "latest"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
   }
 }
