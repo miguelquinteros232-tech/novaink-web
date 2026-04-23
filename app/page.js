@@ -2,102 +2,96 @@
 import React from 'react';
 
 export default function NovaInkFinal() {
+  const neonGreen = "#00ffa3";
+  const darkBg = "#050505";
+  const cardBg = "#0d0d0d";
+
   return (
     <div style={{
-      backgroundColor: '#050505',
+      backgroundColor: darkBg,
       color: 'white',
       minHeight: '100vh',
-      fontFamily: 'sans-serif',
+      fontFamily: 'system-ui, sans-serif',
       padding: '40px',
       display: 'flex',
       flexDirection: 'column',
-      alignItems: 'center'
+      alignItems: 'center',
+      position: 'relative',
+      overflow: 'hidden'
     }}>
-      {/* Resplandor de fondo (Efecto Trading) */}
+      {/* Luces de fondo (Glow) */}
       <div style={{
-        position: 'fixed',
-        top: '-100px',
-        left: '-100px',
-        width: '400px',
-        height: '400px',
-        backgroundColor: 'rgba(0, 255, 163, 0.1)',
-        filter: 'blur(100px)',
-        borderRadius: '50%',
-        zIndex: 0
+        position: 'absolute', top: '-10%', left: '-10%', width: '500px', height: '500px',
+        background: `radial-gradient(circle, ${neonGreen}1a 0%, transparent 70%)`, filter: 'blur(60px)', zIndex: 0
       }}></div>
 
-      {/* Header */}
-      <header style={{ width: '100%', maxWidth: '1000px', marginBottom: '60px', zIndex: 1 }}>
-        <h1 style={{ fontSize: '32px', fontWeight: '900', letterSpacing: '-1px' }}>
-          NOVA<span style={{ color: '#00ffa3', fontWeight: '200' }}>INK</span>
+      <header style={{ width: '100%', maxWidth: '1100px', marginBottom: '60px', zIndex: 1 }}>
+        <h1 style={{ fontSize: '28px', fontWeight: '900', letterSpacing: '-1px', fontStyle: 'italic' }}>
+          NOVA<span style={{ color: neonGreen, fontWeight: '200' }}>INK</span>
         </h1>
       </header>
 
-      {/* Grid Principal */}
       <div style={{ 
-        display: 'grid', 
-        gridTemplateColumns: '1fr 350px', 
-        gap: '30px', 
-        width: '100%', 
-        maxWidth: '1000px',
-        zIndex: 1 
+        display: 'grid', gridTemplateColumns: '1fr 380px', gap: '40px', 
+        width: '100%', maxWidth: '1100px', zIndex: 1 
       }}>
         
-        {/* Panel de Configuración */}
+        {/* PANEL IZQUIERDO */}
         <div style={{ 
-          background: 'rgba(20, 20, 20, 0.8)', 
-          border: '1px solid rgba(255,255,255,0.1)', 
-          padding: '40px', 
-          borderRadius: '40px',
-          backdropFilter: 'blur(20px)'
+          background: 'rgba(20, 20, 20, 0.6)', border: '1px solid rgba(255,255,255,0.1)', 
+          padding: '40px', borderRadius: '40px', backdropFilter: 'blur(20px)'
         }}>
-          <h2 style={{ fontSize: '12px', color: '#00ffa3', letterSpacing: '4px', marginBottom: '30px' }}>01 CONFIGURACIÓN</h2>
+          <h2 style={{ fontSize: '11px', color: neonGreen, letterSpacing: '5px', marginBottom: '30px', fontWeight: '900' }}>01 CONFIGURACIÓN</h2>
           
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '15px' }}>
-            <button style={{ background: '#00ffa3', color: 'black', border: 'none', padding: '20px', borderRadius: '15px', fontWeight: 'bold' }}>REMERAS</button>
-            <button style={{ background: '#1a1a1a', color: '#555', border: '1px solid #333', padding: '20px', borderRadius: '15px' }}>GORRAS</button>
-            <button style={{ background: '#1a1a1a', color: '#555', border: '1px solid #333', padding: '20px', borderRadius: '15px' }}>TAZAS</button>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '20px' }}>
+            <button style={{ background: neonGreen, color: 'black', border: 'none', padding: '25px', borderRadius: '20px', fontWeight: '900', fontSize: '12px', cursor: 'pointer', boxShadow: `0 10px 20px ${neonGreen}33` }}>REMERAS</button>
+            <button style={{ background: '#151515', color: '#666', border: '1px solid #333', padding: '25px', borderRadius: '20px', fontWeight: '900', fontSize: '12px' }}>GORRAS</button>
+            <button style={{ background: '#151515', color: '#666', border: '1px solid #333', padding: '25px', borderRadius: '20px', fontWeight: '900', fontSize: '12px' }}>TAZAS</button>
           </div>
 
-          <div style={{ marginTop: '40px' }}>
-            <div style={{ width: '100%', height: '150px', border: '2px dashed #333', borderRadius: '20px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#444' }}>
-              ARRASTRÁ TU DISEÑO AQUÍ
+          <div style={{ marginTop: '50px' }}>
+            <p style={{ fontSize: '10px', color: '#444', marginBottom: '15px', fontWeight: '900', letterSpacing: '2px' }}>DROP ASSETS</p>
+            <div style={{ width: '100%', height: '180px', border: '2px dashed #222', borderRadius: '30px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#444', fontSize: '12px', fontWeight: 'bold' }}>
+              CARGÁ TU DISEÑO AQUÍ
             </div>
           </div>
         </div>
 
-        {/* Panel de Resumen (El que brilla) */}
+        {/* PANEL DERECHO (RESUMEN) */}
         <aside style={{ 
-          background: 'linear-gradient(180deg, #151515 0%, #050505 100%)', 
-          border: '1px solid rgba(255,255,255,0.1)', 
-          padding: '40px', 
-          borderRadius: '40px',
-          boxShadow: '0 20px 40px rgba(0,0,0,0.5)',
-          height: 'fit-content'
+          background: 'linear-gradient(180deg, #121212 0%, #050505 100%)', 
+          border: '1px solid rgba(255,255,255,0.1)', padding: '40px', 
+          borderRadius: '40px', boxShadow: '0 30px 60px rgba(0,0,0,0.8)', height: 'fit-content'
         }}>
-          <h3 style={{ fontSize: '18px', fontWeight: '900', marginBottom: '30px' }}>RESUMEN</h3>
+          <h3 style={{ fontSize: '20px', fontWeight: '900', marginBottom: '40px', italic: 'true' }}>ORDER <span style={{color: neonGreen}}>SUMMARY</span></h3>
           
-          <div style={{ borderBottom: '1px solid #222', paddingBottom: '15px', marginBottom: '15px', display: 'flex', justifyContent: 'space-between' }}>
-            <span style={{ fontSize: '10px', color: '#555' }}>PRODUCTO</span>
-            <span style={{ fontSize: '12px', fontWeight: 'bold' }}>Remera Oversize</span>
+          <div style={{ spaceY: '20px' }}>
+            {[
+              { label: 'PRODUCTO', val: 'Oversize Tee' },
+              { label: 'ESTAMPA', val: 'Digital Pro', color: neonGreen },
+              { label: 'TIEMPO', val: '24hs' }
+            ].map((item, i) => (
+              <div key={i} style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid #222', padding: '15px 0' }}>
+                <span style={{ fontSize: '9px', color: '#555', fontWeight: '900' }}>{item.label}</span>
+                <span style={{ fontSize: '12px', fontWeight: 'bold', color: item.color || 'white' }}>{item.val}</span>
+              </div>
+            ))}
           </div>
 
-          <div style={{ marginTop: '40px', marginBottom: '40px' }}>
-            <p style={{ fontSize: '10px', color: '#555', marginBottom: '5px' }}>TOTAL</p>
-            <span style={{ fontSize: '40px', fontWeight: '900' }}>$14.500</span>
+          <div style={{ marginTop: '50px', marginBottom: '40px' }}>
+            <p style={{ fontSize: '10px', color: '#555', marginBottom: '10px', fontWeight: '900' }}>TOTAL AMOUNT</p>
+            <div style={{ display: 'flex', alignItems: 'baseline', gap: '5px' }}>
+              <span style={{ fontSize: '48px', fontWeight: '900', letterSpacing: '-2px' }}>$14.500</span>
+              <span style={{ color: neonGreen, fontSize: '12px', fontWeight: 'bold' }}>ARS</span>
+            </div>
           </div>
 
           <button style={{ 
-            width: '100%', 
-            padding: '20px', 
-            background: 'white', 
-            color: 'black', 
-            border: 'none', 
-            borderRadius: '15px', 
-            fontWeight: '900',
-            cursor: 'pointer'
+            width: '100%', padding: '25px', background: 'white', color: 'black', 
+            border: 'none', borderRadius: '20px', fontWeight: '900', fontSize: '12px',
+            cursor: 'pointer', transition: '0.3s', letterSpacing: '2px'
           }}>
-            FINALIZAR ORDEN
+            EXECUTE ORDER
           </button>
         </aside>
       </div>
