@@ -1,95 +1,96 @@
 "use client";
 import React from 'react';
 
-export default function NovaInkFinal() {
-  const neonGreen = "#00ffa3";
-  const darkBg = "#050505";
-  const cardBg = "#0d0d0d";
+export default function NovaInkAlpha() {
+  const neon = "#00ffa3";
 
   return (
     <div style={{
-      backgroundColor: darkBg,
+      backgroundColor: '#020203',
       color: 'white',
       minHeight: '100vh',
-      fontFamily: 'system-ui, sans-serif',
+      fontFamily: 'system-ui, -apple-system, sans-serif',
       padding: '40px',
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
-      position: 'relative',
-      overflow: 'hidden'
+      position: 'relative'
     }}>
-      {/* Luces de fondo (Glow) */}
+      {/* Resplandor de fondo (Glow) */}
       <div style={{
         position: 'absolute', top: '-10%', left: '-10%', width: '500px', height: '500px',
-        background: `radial-gradient(circle, ${neonGreen}1a 0%, transparent 70%)`, filter: 'blur(60px)', zIndex: 0
+        background: `radial-gradient(circle, ${neon}15 0%, transparent 70%)`, filter: 'blur(80px)', pointerEvents: 'none'
       }}></div>
 
-      <header style={{ width: '100%', maxWidth: '1100px', marginBottom: '60px', zIndex: 1 }}>
-        <h1 style={{ fontSize: '28px', fontWeight: '900', letterSpacing: '-1px', fontStyle: 'italic' }}>
-          NOVA<span style={{ color: neonGreen, fontWeight: '200' }}>INK</span>
+      {/* Header Estilo Alpha */}
+      <header style={{ width: '100%', maxWidth: '1050px', marginBottom: '50px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        <h1 style={{ fontSize: '24px', fontWeight: '900', letterSpacing: '-1px', fontStyle: 'italic' }}>
+          NOVA<span style={{ color: neon, fontWeight: '200' }}>INK</span>
         </h1>
+        <div style={{ fontSize: '10px', color: '#444', letterSpacing: '3px', fontWeight: 'bold' }}>TERMINAL V.2.0</div>
       </header>
 
+      {/* Grid de 2 Columnas */}
       <div style={{ 
-        display: 'grid', gridTemplateColumns: '1fr 380px', gap: '40px', 
-        width: '100%', maxWidth: '1100px', zIndex: 1 
+        display: 'grid', gridTemplateColumns: '1fr 360px', gap: '30px', 
+        width: '100%', maxWidth: '1050px' 
       }}>
         
-        {/* PANEL IZQUIERDO */}
+        {/* PANEL IZQUIERDO: CONFIGURADOR */}
         <div style={{ 
-          background: 'rgba(20, 20, 20, 0.6)', border: '1px solid rgba(255,255,255,0.1)', 
-          padding: '40px', borderRadius: '40px', backdropFilter: 'blur(20px)'
+          background: '#0a0a0b', border: '1px solid #1a1a1b', 
+          padding: '40px', borderRadius: '35px', boxShadow: '0 20px 50px rgba(0,0,0,0.5)'
         }}>
-          <h2 style={{ fontSize: '11px', color: neonGreen, letterSpacing: '5px', marginBottom: '30px', fontWeight: '900' }}>01 CONFIGURACIÓN</h2>
+          <h2 style={{ fontSize: '10px', color: neon, letterSpacing: '4px', marginBottom: '30px', fontWeight: '900' }}>01 CONFIGURATION</h2>
           
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '20px' }}>
-            <button style={{ background: neonGreen, color: 'black', border: 'none', padding: '25px', borderRadius: '20px', fontWeight: '900', fontSize: '12px', cursor: 'pointer', boxShadow: `0 10px 20px ${neonGreen}33` }}>REMERAS</button>
-            <button style={{ background: '#151515', color: '#666', border: '1px solid #333', padding: '25px', borderRadius: '20px', fontWeight: '900', fontSize: '12px' }}>GORRAS</button>
-            <button style={{ background: '#151515', color: '#666', border: '1px solid #333', padding: '25px', borderRadius: '20px', fontWeight: '900', fontSize: '12px' }}>TAZAS</button>
+          {/* Botones de Categoría */}
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '15px', marginBottom: '40px' }}>
+            <button style={{ background: neon, color: 'black', border: 'none', padding: '22px', borderRadius: '18px', fontWeight: '900', fontSize: '11px', cursor: 'pointer' }}>REMERAS</button>
+            <button style={{ background: '#111', color: '#444', border: '1px solid #222', padding: '22px', borderRadius: '18px', fontWeight: '900', fontSize: '11px' }}>GORRAS</button>
+            <button style={{ background: '#111', color: '#444', border: '1px solid #222', padding: '22px', borderRadius: '18px', fontWeight: '900', fontSize: '11px' }}>TAZAS</button>
           </div>
 
-          <div style={{ marginTop: '50px' }}>
-            <p style={{ fontSize: '10px', color: '#444', marginBottom: '15px', fontWeight: '900', letterSpacing: '2px' }}>DROP ASSETS</p>
-            <div style={{ width: '100%', height: '180px', border: '2px dashed #222', borderRadius: '30px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#444', fontSize: '12px', fontWeight: 'bold' }}>
-              CARGÁ TU DISEÑO AQUÍ
-            </div>
+          <p style={{ fontSize: '10px', color: '#444', fontWeight: '900', marginBottom: '15px' }}>INPUT ASSET</p>
+          <div style={{ 
+            width: '100%', height: '160px', border: '2px dashed #1a1a1b', borderRadius: '25px', 
+            display: 'flex', alignItems: 'center', justifyContent: 'center', 
+            color: '#333', fontSize: '11px', fontWeight: 'bold', letterSpacing: '2px' 
+          }}>
+            DRAG AND DROP DESIGN
           </div>
         </div>
 
-        {/* PANEL DERECHO (RESUMEN) */}
+        {/* PANEL DERECHO: RESUMEN (ORDER SUMMARY) */}
         <aside style={{ 
-          background: 'linear-gradient(180deg, #121212 0%, #050505 100%)', 
-          border: '1px solid rgba(255,255,255,0.1)', padding: '40px', 
-          borderRadius: '40px', boxShadow: '0 30px 60px rgba(0,0,0,0.8)', height: 'fit-content'
+          background: 'linear-gradient(180deg, #0f0f10 0%, #050505 100%)', 
+          border: '1px solid #1a1a1b', padding: '35px', 
+          borderRadius: '35px', height: 'fit-content', boxShadow: '0 30px 60px rgba(0,0,0,0.7)'
         }}>
-          <h3 style={{ fontSize: '20px', fontWeight: '900', marginBottom: '40px', italic: 'true' }}>ORDER <span style={{color: neonGreen}}>SUMMARY</span></h3>
+          <h3 style={{ fontSize: '18px', fontWeight: '900', marginBottom: '35px', fontStyle: 'italic' }}>ORDER <span style={{color: neon}}>DETAILS</span></h3>
           
-          <div style={{ spaceY: '20px' }}>
-            {[
-              { label: 'PRODUCTO', val: 'Oversize Tee' },
-              { label: 'ESTAMPA', val: 'Digital Pro', color: neonGreen },
-              { label: 'TIEMPO', val: '24hs' }
-            ].map((item, i) => (
-              <div key={i} style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid #222', padding: '15px 0' }}>
-                <span style={{ fontSize: '9px', color: '#555', fontWeight: '900' }}>{item.label}</span>
-                <span style={{ fontSize: '12px', fontWeight: 'bold', color: item.color || 'white' }}>{item.val}</span>
-              </div>
-            ))}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid #151515', paddingBottom: '12px' }}>
+              <span style={{ fontSize: '9px', color: '#444', fontWeight: '900' }}>ASSET</span>
+              <span style={{ fontSize: '11px', fontWeight: 'bold' }}>T-Shirt Pro</span>
+            </div>
+            <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid #151515', paddingBottom: '12px' }}>
+              <span style={{ fontSize: '9px', color: '#444', fontWeight: '900' }}>TECH</span>
+              <span style={{ fontSize: '11px', fontWeight: 'bold', color: neon }}>HD Sublimation</span>
+            </div>
           </div>
 
-          <div style={{ marginTop: '50px', marginBottom: '40px' }}>
-            <p style={{ fontSize: '10px', color: '#555', marginBottom: '10px', fontWeight: '900' }}>TOTAL AMOUNT</p>
-            <div style={{ display: 'flex', alignItems: 'baseline', gap: '5px' }}>
-              <span style={{ fontSize: '48px', fontWeight: '900', letterSpacing: '-2px' }}>$14.500</span>
-              <span style={{ color: neonGreen, fontSize: '12px', fontWeight: 'bold' }}>ARS</span>
+          <div style={{ marginTop: '40px', marginBottom: '35px' }}>
+            <p style={{ fontSize: '9px', color: '#444', fontWeight: '900', marginBottom: '8px' }}>TOTAL PRICE</p>
+            <div style={{ display: 'flex', alignItems: 'baseline', gap: '4px' }}>
+              <span style={{ fontSize: '42px', fontWeight: '900', letterSpacing: '-2px' }}>$14.500</span>
+              <span style={{ color: neon, fontSize: '11px', fontWeight: 'bold' }}>ARS</span>
             </div>
           </div>
 
           <button style={{ 
-            width: '100%', padding: '25px', background: 'white', color: 'black', 
-            border: 'none', borderRadius: '20px', fontWeight: '900', fontSize: '12px',
-            cursor: 'pointer', transition: '0.3s', letterSpacing: '2px'
+            width: '100%', padding: '22px', background: 'white', color: 'black', 
+            border: 'none', borderRadius: '18px', fontWeight: '900', fontSize: '11px',
+            cursor: 'pointer', letterSpacing: '2px', transition: '0.2s'
           }}>
             EXECUTE ORDER
           </button>
