@@ -1,100 +1,138 @@
 "use client";
-import React from 'react';
 
-export default function NovaInkUltimate() {
-  const neon = "#00ffa3";
-
+export default function NovaInkTerminal() {
   return (
-    <div style={{
-      backgroundColor: '#050505',
-      color: 'white',
-      minHeight: '100vh',
-      fontFamily: 'system-ui, -apple-system, sans-serif',
-      padding: '40px',
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
-      position: 'relative'
-    }}>
-      {/* Glow de fondo (Efecto interfaz Alpha) */}
-      <div style={{
-        position: 'absolute', top: '-10%', left: '-10%', width: '600px', height: '600px',
-        background: `radial-gradient(circle, ${neon}15 0%, transparent 70%)`, filter: 'blur(80px)', pointerEvents: 'none'
-      }}></div>
-
-      {/* Header */}
-      <header style={{ width: '100%', maxWidth: '1000px', marginBottom: '50px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', zIndex: 1 }}>
-        <h1 style={{ fontSize: '24px', fontWeight: '900', letterSpacing: '-1px', fontStyle: 'italic' }}>
-          NOVA<span style={{ color: neon, fontWeight: '200' }}>INK</span>
-        </h1>
-        <div style={{ fontSize: '10px', color: '#444', letterSpacing: '3px', fontWeight: 'bold' }}>TERMINAL v1.0.9</div>
-      </header>
-
-      {/* Grid de 2 Columnas */}
-      <div style={{ 
-        display: 'grid', gridTemplateColumns: '1fr 350px', gap: '30px', 
-        width: '100%', maxWidth: '1000px', zIndex: 1
-      }}>
+    <>
+      <style dangerouslySetInnerHTML={{ __html: `
+        :root { --neon: #00ffa3; --bg: #050505; --panel: #0d0d0e; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: var(--bg); color: white; font-family: sans-serif; }
         
-        {/* PANEL IZQUIERDO: CONFIGURADOR */}
-        <div style={{ 
-          background: '#0d0d0e', border: '1px solid #1a1a1b', 
-          padding: '40px', borderRadius: '35px', boxShadow: '0 20px 50px rgba(0,0,0,0.5)'
-        }}>
-          <h2 style={{ fontSize: '10px', color: neon, letterSpacing: '4px', marginBottom: '30px', fontWeight: '900' }}>01 SELECCIÓN DE ACTIVO</h2>
-          
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '15px', marginBottom: '40px' }}>
-            <button style={{ background: neon, color: 'black', border: 'none', padding: '22px', borderRadius: '18px', fontWeight: '900', fontSize: '11px', cursor: 'pointer' }}>REMERAS</button>
-            <button style={{ background: '#151516', color: '#444', border: '1px solid #222', padding: '22px', borderRadius: '18px', fontWeight: '900', fontSize: '11px' }}>GORRAS</button>
-            <button style={{ background: '#151516', color: '#444', border: '1px solid #222', padding: '22px', borderRadius: '18px', fontWeight: '900', fontSize: '11px' }}>TAZAS</button>
+        .main-container {
+          min-height: 100vh;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          padding: 40px;
+        }
+
+        .header {
+          width: 100%;
+          max-width: 1000px;
+          margin-bottom: 50px;
+          display: flex;
+          justify-content: space-between;
+        }
+
+        .logo { font-weight: 900; font-size: 24px; font-style: italic; letter-spacing: -1px; }
+        .logo span { color: var(--neon); font-weight: 200; }
+
+        .grid {
+          display: grid;
+          grid-template-columns: 1fr 350px;
+          gap: 30px;
+          width: 100%;
+          max-width: 1000px;
+        }
+
+        .card {
+          background: var(--panel);
+          border: 1px solid #1a1a1b;
+          border-radius: 35px;
+          padding: 40px;
+          box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+        }
+
+        .btn-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 15px; margin-top: 25px; }
+        
+        .btn-neon {
+          background: var(--neon);
+          color: black;
+          border: none;
+          padding: 20px;
+          border-radius: 18px;
+          font-weight: 900;
+          font-size: 11px;
+          cursor: pointer;
+        }
+
+        .btn-dark {
+          background: #151516;
+          color: #444;
+          border: 1px solid #222;
+          padding: 20px;
+          border-radius: 18px;
+          font-weight: 900;
+          font-size: 11px;
+        }
+
+        .dropzone {
+          margin-top: 40px;
+          height: 180px;
+          border: 2px dashed #1a1a1b;
+          border-radius: 25px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: #333;
+          font-weight: bold;
+          font-size: 11px;
+        }
+
+        .summary {
+          background: linear-gradient(180deg, #121213 0%, #050505 100%);
+        }
+
+        .total-box { margin: 40px 0; }
+        .total-box p { font-size: 9px; color: #444; font-weight: 900; margin-bottom: 5px; }
+        .total-box h4 { font-size: 42px; font-weight: 900; letter-spacing: -2px; }
+        .total-box span { color: var(--neon); font-size: 11px; }
+
+        .btn-execute {
+          width: 100%;
+          padding: 22px;
+          background: white;
+          color: black;
+          border: none;
+          border-radius: 18px;
+          font-weight: 900;
+          font-size: 11px;
+          cursor: pointer;
+          letter-spacing: 2px;
+        }
+      ` }} />
+
+      <div className="main-container">
+        <header className="header">
+          <h1 className="logo">NOVA<span>INK</span></h1>
+          <div style={{ color: '#444', fontSize: '10px', fontWeight: 'bold' }}>STATION 1.0</div>
+        </header>
+
+        <div className="grid">
+          <div className="card">
+            <p style={{ color: 'var(--neon)', fontSize: '10px', letterSpacing: '4px', fontWeight: '900' }}>01 CONFIGURATION</p>
+            <div className="btn-grid">
+              <button className="btn-neon">REMERAS</button>
+              <button className="btn-dark">GORRAS</button>
+              <button className="btn-dark">TAZAS</button>
+            </div>
+            <div className="dropzone">ARRASTRÁ TU DISEÑO AQUÍ</div>
           </div>
 
-          <p style={{ fontSize: '10px', color: '#444', fontWeight: '900', marginBottom: '15px' }}>DROP ASSET (PNG/AI)</p>
-          <div style={{ 
-            width: '100%', height: '180px', border: '2px dashed #1a1a1b', borderRadius: '25px', 
-            display: 'flex', alignItems: 'center', justifyContent: 'center', 
-            color: '#333', fontSize: '11px', fontWeight: 'bold', letterSpacing: '2px', textAlign: 'center'
-          }}>
-            ARRASTRÁ TU DISEÑO AQUÍ
-          </div>
-        </div>
-
-        {/* PANEL DERECHO: RESUMEN (ORDER SUMMARY) */}
-        <aside style={{ 
-          background: 'linear-gradient(180deg, #121213 0%, #050505 100%)', 
-          border: '1px solid #1a1a1b', padding: '35px', 
-          borderRadius: '35px', height: 'fit-content', boxShadow: '0 30px 60px rgba(0,0,0,0.7)'
-        }}>
-          <h3 style={{ fontSize: '18px', fontWeight: '900', marginBottom: '35px', fontStyle: 'italic' }}>ORDER <span style={{color: neon}}>DETAILS</span></h3>
-          
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid #1a1a1b', paddingBottom: '12px' }}>
-              <span style={{ fontSize: '9px', color: '#444', fontWeight: '900' }}>ITEM</span>
+          <div className="card summary">
+            <h3 style={{ fontStyle: 'italic', marginBottom: '30px' }}>ORDER DETAILS</h3>
+            <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid #1a1a1b', paddingBottom: '10px' }}>
+              <span style={{ fontSize: '9px', color: '#444' }}>ITEM</span>
               <span style={{ fontSize: '11px', fontWeight: 'bold' }}>T-Shirt Oversize</span>
             </div>
-            <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid #1a1a1b', paddingBottom: '12px' }}>
-              <span style={{ fontSize: '9px', color: '#444', fontWeight: '900' }}>PRINT</span>
-              <span style={{ fontSize: '11px', fontWeight: 'bold', color: neon }}>HD Digital</span>
+            <div className="total-box">
+              <p>ESTIMATED TOTAL</p>
+              <h4>$14.500 <span>ARS</span></h4>
             </div>
+            <button className="btn-execute">EXECUTE ORDER</button>
           </div>
-
-          <div style={{ marginTop: '40px', marginBottom: '35px' }}>
-            <p style={{ fontSize: '9px', color: '#444', fontWeight: '900', marginBottom: '8px' }}>ESTIMATED TOTAL</p>
-            <div style={{ display: 'flex', alignItems: 'baseline', gap: '4px' }}>
-              <span style={{ fontSize: '42px', fontWeight: '900', letterSpacing: '-2px' }}>$14.500</span>
-              <span style={{ color: neon, fontSize: '11px', fontWeight: 'bold' }}>ARS</span>
-            </div>
-          </div>
-
-          <button style={{ 
-            width: '100%', padding: '22px', background: 'white', color: 'black', 
-            border: 'none', borderRadius: '18px', fontWeight: '900', fontSize: '11px',
-            cursor: 'pointer', letterSpacing: '2px'
-          }}>
-            EXECUTE ORDER
-          </button>
-        </aside>
+        </div>
       </div>
-    </div>
+    </>
   );
 }
