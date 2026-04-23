@@ -13,7 +13,7 @@ export default function NovaInk() {
       {/* Header Superior */}
       <header style={{ width: '100%', maxWidth: '1200px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '80px' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
-          <div style={{ background: '#00ffa3', padding: '10px', borderRadius: '12px' }}>
+          <div style={{ background: '#00ffa3', padding: '10px', borderRadius: '12px', boxShadow: '0 0 20px rgba(0, 255, 163, 0.3)' }}>
             <Zap size={22} color="black" fill="black" />
           </div>
           <h1 style={{ fontSize: '32px', fontWeight: '900', letterSpacing: '-1.5px', fontStyle: 'italic' }}>
@@ -31,12 +31,12 @@ export default function NovaInk() {
         {/* PANEL 01 CONFIGURATION */}
         <div style={{ 
           flex: '1.5', minWidth: '400px', background: '#0a0a0a', border: '1px solid #151515',
-          borderRadius: '45px', padding: '50px'
+          borderRadius: '45px', padding: '50px', boxShadow: '0 20px 50px rgba(0,0,0,0.5)'
         }}>
           <h2 style={{ color: '#00ffa3', fontSize: '12px', fontWeight: '900', letterSpacing: '4px', marginBottom: '40px' }}>01 CONFIGURATION</h2>
           
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '20px', marginBottom: '50px' }}>
-            <button style={{ background: '#00ffa3', color: 'black', border: 'none', padding: '25px', borderRadius: '25px', fontWeight: '900', fontSize: '13px', cursor: 'pointer' }}>REMERAS</button>
+            <button style={{ background: '#00ffa3', color: 'black', border: 'none', padding: '25px', borderRadius: '25px', fontWeight: '900', fontSize: '13px', cursor: 'pointer', transition: '0.3s' }}>REMERAS</button>
             <button style={{ background: '#111', color: '#333', border: '1px solid #1a1a1a', padding: '25px', borderRadius: '25px', fontWeight: '900', fontSize: '13px' }}>GORRAS</button>
             <button style={{ background: '#111', color: '#333', border: '1px solid #1a1a1a', padding: '25px', borderRadius: '25px', fontWeight: '900', fontSize: '13px' }}>TAZAS</button>
           </div>
@@ -46,7 +46,7 @@ export default function NovaInk() {
             display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
             color: '#333', cursor: 'pointer'
           }}>
-            <Upload size={32} style={{ marginBottom: '15px' }} />
+            <Upload size={32} style={{ marginBottom: '15px', opacity: 0.5 }} />
             <span style={{ fontSize: '12px', fontWeight: '800', letterSpacing: '1px' }}>DRAG ASSET HERE</span>
           </div>
         </div>
@@ -54,7 +54,8 @@ export default function NovaInk() {
         {/* PANEL ORDER SUMMARY */}
         <aside style={{ 
           flex: '1', minWidth: '350px', background: '#0a0a0a', border: '1px solid #151515',
-          borderRadius: '45px', padding: '50px', display: 'flex', flexDirection: 'column'
+          borderRadius: '45px', padding: '50px', display: 'flex', flexDirection: 'column',
+          boxShadow: '0 30px 60px rgba(0,0,0,0.8)'
         }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '45px' }}>
             <BarChart3 size={18} color="#00ffa3" />
@@ -78,7 +79,7 @@ export default function NovaInk() {
             width: '100%', padding: '28px', background: 'white', color: 'black', 
             border: 'none', borderRadius: '25px', fontWeight: '900', fontSize: '14px',
             cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px',
-            textTransform: 'uppercase', letterSpacing: '1px'
+            textTransform: 'uppercase', letterSpacing: '1px', transition: '0.2s'
           }}>
             Execute Order <ChevronRight size={20} />
           </button>
