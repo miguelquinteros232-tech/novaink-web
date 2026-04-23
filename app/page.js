@@ -1,98 +1,89 @@
 "use client";
 import React from 'react';
+import { Zap, Upload, ChevronRight, BarChart3 } from 'lucide-react';
 
-export default function NovaInkAlpha() {
+export default function NovaInk() {
   return (
     <div style={{
-      backgroundColor: '#050505',
-      color: 'white',
-      minHeight: '100vh',
-      fontFamily: 'system-ui, sans-serif',
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
-      padding: '40px',
-      margin: '0'
+      backgroundColor: '#000000', color: 'white', minHeight: '100vh',
+      fontFamily: 'Inter, system-ui, sans-serif', padding: '60px 20px',
+      display: 'flex', flexDirection: 'column', alignItems: 'center'
     }}>
-      {/* Glow de fondo */}
-      <div style={{
-        position: 'absolute', top: '-100px', left: '-100px', width: '400px', height: '400px',
-        backgroundColor: 'rgba(0, 255, 163, 0.05)', filter: 'blur(100px)', borderRadius: '50%', zIndex: 0
-      }}></div>
-
-      {/* Header */}
-      <header style={{ width: '100%', maxWidth: '1000px', marginBottom: '50px', zIndex: 1 }}>
-        <h1 style={{ fontSize: '28px', fontWeight: '900', fontStyle: 'italic', letterSpacing: '-1px' }}>
-          NOVA<span style={{ color: '#00ffa3', fontWeight: '200' }}>INK</span>
-        </h1>
+      
+      {/* Header Superior */}
+      <header style={{ width: '100%', maxWidth: '1200px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '80px' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
+          <div style={{ background: '#00ffa3', padding: '10px', borderRadius: '12px' }}>
+            <Zap size={22} color="black" fill="black" />
+          </div>
+          <h1 style={{ fontSize: '32px', fontWeight: '900', letterSpacing: '-1.5px', fontStyle: 'italic' }}>
+            NOVA<span style={{ fontWeight: '300' }}>INK</span>
+          </h1>
+        </div>
+        <div style={{ color: '#444', fontSize: '12px', fontWeight: 'bold', letterSpacing: '2px' }}>SYSTEM.ACTIVE</div>
       </header>
 
-      {/* Grid de 2 Columnas: Esto es lo que va a arreglar la "lista" */}
+      {/* Grid Principal */}
       <div style={{ 
-        display: 'flex', 
-        flexDirection: 'row', 
-        gap: '30px', 
-        width: '100%', 
-        maxWidth: '1000px',
-        zIndex: 1,
-        flexWrap: 'wrap' // Para que en celulares se ponga uno abajo del otro
+        display: 'flex', gap: '30px', width: '100%', maxWidth: '1200px', flexWrap: 'wrap', justifyContent: 'center' 
       }}>
         
-        {/* Panel Izquierdo (Configuración) */}
+        {/* PANEL 01 CONFIGURATION */}
         <div style={{ 
-          flex: '1',
-          minWidth: '300px',
-          background: '#0d0d0e', 
-          border: '1px solid rgba(255,255,255,0.1)', 
-          padding: '40px', 
-          borderRadius: '40px',
-          boxShadow: '0 20px 50px rgba(0,0,0,0.5)'
+          flex: '1.5', minWidth: '400px', background: '#0a0a0a', border: '1px solid #151515',
+          borderRadius: '45px', padding: '50px'
         }}>
-          <p style={{ color: '#00ffa3', fontSize: '10px', letterSpacing: '4px', fontWeight: '900', marginBottom: '30px' }}>01 CONFIGURATION</p>
+          <h2 style={{ color: '#00ffa3', fontSize: '12px', fontWeight: '900', letterSpacing: '4px', marginBottom: '40px' }}>01 CONFIGURATION</h2>
           
-          <div style={{ display: 'flex', gap: '15px', marginBottom: '40px' }}>
-            <button style={{ flex: 1, background: '#00ffa3', color: 'black', border: 'none', padding: '20px', borderRadius: '15px', fontWeight: '900', cursor: 'pointer' }}>REMERAS</button>
-            <button style={{ flex: 1, background: '#151516', color: '#555', border: '1px solid #333', padding: '20px', borderRadius: '15px', fontWeight: '900' }}>GORRAS</button>
-            <button style={{ flex: 1, background: '#151516', color: '#555', border: '1px solid #333', padding: '20px', borderRadius: '15px', fontWeight: '900' }}>TAZAS</button>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '20px', marginBottom: '50px' }}>
+            <button style={{ background: '#00ffa3', color: 'black', border: 'none', padding: '25px', borderRadius: '25px', fontWeight: '900', fontSize: '13px', cursor: 'pointer' }}>REMERAS</button>
+            <button style={{ background: '#111', color: '#333', border: '1px solid #1a1a1a', padding: '25px', borderRadius: '25px', fontWeight: '900', fontSize: '13px' }}>GORRAS</button>
+            <button style={{ background: '#111', color: '#333', border: '1px solid #1a1a1a', padding: '25px', borderRadius: '25px', fontWeight: '900', fontSize: '13px' }}>TAZAS</button>
           </div>
 
-          <div style={{ height: '180px', border: '2px dashed #222', borderRadius: '25px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#444', fontWeight: 'bold', fontSize: '11px' }}>
-            ARRASTRÁ TU DISEÑO AQUÍ
+          <div style={{ 
+            height: '240px', border: '2px dashed #1a1a1a', borderRadius: '35px', 
+            display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
+            color: '#333', cursor: 'pointer'
+          }}>
+            <Upload size={32} style={{ marginBottom: '15px' }} />
+            <span style={{ fontSize: '12px', fontWeight: '800', letterSpacing: '1px' }}>DRAG ASSET HERE</span>
           </div>
         </div>
 
-        {/* Panel Derecho (Resumen) */}
+        {/* PANEL ORDER SUMMARY */}
         <aside style={{ 
-          width: '350px',
-          background: 'linear-gradient(180deg, #121213 0%, #050505 100%)', 
-          border: '1px solid rgba(255,255,255,0.1)', 
-          padding: '40px', 
-          borderRadius: '40px',
-          boxShadow: '0 30px 60px rgba(0,0,0,0.7)'
+          flex: '1', minWidth: '350px', background: '#0a0a0a', border: '1px solid #151515',
+          borderRadius: '45px', padding: '50px', display: 'flex', flexDirection: 'column'
         }}>
-          <h3 style={{ fontSize: '18px', fontWeight: '900', marginBottom: '35px', fontStyle: 'italic' }}>ORDER SUMMARY</h3>
-          
-          <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid #222', paddingBottom: '15px', marginBottom: '15px' }}>
-            <span style={{ fontSize: '10px', color: '#555', fontWeight: '900' }}>ITEM</span>
-            <span style={{ fontSize: '12px', fontWeight: 'bold' }}>Remera Pro</span>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '45px' }}>
+            <BarChart3 size={18} color="#00ffa3" />
+            <h3 style={{ fontSize: '22px', fontWeight: '900', fontStyle: 'italic' }}>ORDER <span style={{color: '#00ffa3'}}>SUMMARY</span></h3>
           </div>
 
-          <div style={{ marginTop: '50px', marginBottom: '40px' }}>
-            <p style={{ fontSize: '10px', color: '#555', fontWeight: '900', marginBottom: '5px' }}>TOTAL</p>
-            <div style={{ display: 'flex', alignItems: 'baseline', gap: '5px' }}>
-              <span style={{ fontSize: '42px', fontWeight: '900', letterSpacing: '-2px' }}>$14.500</span>
-              <span style={{ color: '#00ffa3', fontSize: '12px', fontWeight: 'bold' }}>ARS</span>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '1px solid #151515', paddingBottom: '20px', marginBottom: '40px' }}>
+            <span style={{ fontSize: '10px', color: '#333', fontWeight: '900', letterSpacing: '1px' }}>SELECTED ITEM</span>
+            <span style={{ fontSize: '14px', fontWeight: '700' }}>Premium Tee</span>
+          </div>
+
+          <div style={{ marginTop: 'auto', marginBottom: '40px' }}>
+            <p style={{ fontSize: '10px', color: '#333', fontWeight: '900', letterSpacing: '1px', marginBottom: '10px' }}>TOTAL AMOUNT</p>
+            <div style={{ display: 'flex', alignItems: 'baseline', gap: '10px' }}>
+              <span style={{ fontSize: '64px', fontWeight: '900', letterSpacing: '-3px' }}>$14.500</span>
+              <span style={{ color: '#00ffa3', fontSize: '16px', fontWeight: '900' }}>ARS</span>
             </div>
           </div>
 
           <button style={{ 
-            width: '100%', padding: '20px', background: 'white', color: 'black', 
-            border: 'none', borderRadius: '15px', fontWeight: '900', fontSize: '11px',
-            cursor: 'pointer', letterSpacing: '2px'
+            width: '100%', padding: '28px', background: 'white', color: 'black', 
+            border: 'none', borderRadius: '25px', fontWeight: '900', fontSize: '14px',
+            cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px',
+            textTransform: 'uppercase', letterSpacing: '1px'
           }}>
-            EXECUTE ORDER
+            Execute Order <ChevronRight size={20} />
           </button>
         </aside>
+
       </div>
     </div>
   );
